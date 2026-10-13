@@ -1,0 +1,107 @@
+
+1)
+
+create table salary2 (
+    empno numeric(3),
+    ename varchar(20),
+    hiredate date,
+    sal decimal(10,2)
+);
+
+create view salary2_view as
+select empno, ename, hiredate, sal
+from salary2;
+
+select * from salary2_view;
+
+
+------------------------------------------------
+
+2)
+
+insert into salary2_view
+values (101, 'amit', '2024-01-12', 15000);
+
+insert into salary2_view
+values (102, 'raj', '2024-02-15', 25000);
+
+select * from salary2_view;
+-----------------------------
+
+3)
+
+update salary2_view
+set ename = 'rohit'
+where empno = 101;
+
+select * from salary2_view;
+--------------------------------------
+4)
+delete from salary2_view;
+
+select * from salary2_view;
+
+--------------------------------------
+5)
+
+drop view salary2_view;
+
+----------------------------------------
+6)
+create index idx_ename
+on salary (ename desc);
+
+select * from salary;
+
+------------------------------------------------------------
+
+7)
+
+drop index idx_ename on salary;
+
+select * from salary;
+-----------------------------------------------------------
+8)
+create index idx_ename_sal
+on salary (ename, sal);
+
+select * from salary;
+
+-----------------------------------------------------------
+
+
+9)
+
+select distinct sal
+from emp
+order by sal desc
+limit 1 offset 2;
+
+
+-----------------------------------------------------------
+
+11)
+
+create table emptravel (
+    empno numeric(4),
+    st_date date,
+    destination varchar(20),
+    end_date date,
+    primary key (empno, st_date)
+);
+
+select * from emptravel;
+
+
+-----------------------------------------------------------
+12)
+
+insert into emptravel
+values (1001, '2026-01-10', 'pune', '2026-01-12');
+
+insert into emptravel
+values (1001, '2026-02-15', 'mumbai', '2026-02-18');
+
+select * from emptravel;
+
+-----------------------------------------------------------

@@ -1,0 +1,172 @@
+13-10-2026
+
+create table emp3(
+empno int,
+ename varchar(20),
+sal int);
+
+insert into emp3 values(1,'pr',8888);
+insert into emp3 values(1,'pratu',8888);
+insert into emp3 values(2,'priti',8888);
+insert into emp3 values(1,'priya',8888);
+------------------------------------------
+rowid:
+select empno,ename,rowid from emp;
+-----------------------------------------
+same two record are deleted:
+
+delete 
+from emp3 a
+where rowid!=(select max(rowid)
+			from emp3 b
+			where a.empno=b.empno);
+
+
+------------
+#set operation:
+
+create table:
+
+create table present_car(
+model_no int,
+color varchar(20));
+
+insert into present_car values(1,'white');
+insert into present_car values(2,'blue');
+
+
+create table sold_car(
+model_no int,
+color varchar(20));
+
+insert into sold_car values(3,'black');
+insert into sold_car values(2,'blue');
+------------------
+used union:
+
+select * from present_car
+union 
+select * from sold_car;
+---------------
+union all:
+
+select * from present_car
+union all
+select * from sold_car;
+---------------
+using column name:
+
+select model_no,color from present_car
+union all
+select model_no,color  from sold_car;
+
+
+select * from sold_car
+MINUS
+select * from present_car;
+
+
+select * from sold_car
+intersect
+select * from present_car;
+
+delimiter:
+
+delimiter %%
+
+select * from emp where deptno=10;
+
+select * from dept;
+
+select * from emp3;
+%%
+
+delimiter ;
+select * from emp;
+
+select * from dept;
+
+
+-----stored procdure:
+
+delimiter @@
+create procedure proce1()
+begin
+select * from emp where deptno=10;
+select * from dept;
+select * from emp3;
+desc dept;
+end
+@@
+
+--to execute
+delimiter ;
+call proc1();
+
+--drop
+drop procedure proc1;
+---------------------------
+set  autocommit=0;
+
+delimiter  ##
+create procedure proc2()
+begin
+select ename,sal from emp where deptno=10;
+select ename from emp where year(hiredate)=1981;
+update  emp set  sal=sal+100;
+desc emp;
+desc emp3;
+select now();
+end
+##
+
+===
+delimiter ;
+call proc2();
+rollback;
+
+select * from emp;
+---
+show procedure status where db='cdac';
+--------   
+creating variables:
+
+set @vename :='om';
+select @vename;
+set @vsal :=5000;
+select @vsal;
+select concat(@vename,' earning is: ',@vsal);
+
+set @vename :='om';
+select @vename;
+set @vcollege :='MET';
+select @vcollege;
+set @vaddress :='nashik';
+select @vaddress;
+select concat(@vename,' is from',@vcollege,' and stay at ',@vaddress);
+
+compare two number:num1 and num2
+
+delimiter ##
+create procedure comp_proce()
+begin
+declare result varchar(20);
+set @num1 := 100;
+set @num2 := 200;
+if @num1>@num2 then
+	set result='num is greater';
+elseif @num1<@num2 then
+	set result='num1 is greater';
+else
+	set result='both are same';
+end if;
+select result;
+end
+##
+
+-- to exe==
+
+delimiter ;
+call comp_proce();
+OR
+call comp_proce;

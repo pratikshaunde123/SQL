@@ -1,0 +1,63 @@
+q.1) you need to display the columns namely description, qty_disp, dely_date
+using the three tables product_master, sales_order_details, sales_order.use the inner join.
+
+	
+
+q.2) using the two tables namely product_master and sales_order_details tables display product_no ,
+qty_disp use the inner join
+
+
+	
+q.3) display the employee name and the manager name (use self join).
+	select a.ename,b.ename as manager
+	from emp a,emp b
+	where a.mgr=b.empno;
+	
+
+q.4) the above query sort by ename.
+     select a.ename ,b.ename as ename
+       from emp a,emp b
+       where a.mgr = b.empno
+       order by a.ename;
+  
+ 
+q.5) display ename and the manager for those employee who is the big boss of the         company.(self join and the outer join)
+
+select a.ename ,b.ename 
+from emp a, emp b
+ where a.mgr = b.empno || a.mgr is null;
+
+q.6)write a query for the inner join of the dept and emp table, display DEPTNO,DNAME, name
+    select d.deptno, d.dname, e.ename
+     from dept d ,emp e
+    where d.deptno = e.deptno;
+
+q.7)display on unique deptno from emp and dname.
+    
+    select distinct e.deptno, d.dname
+    from emp e, dept d
+    where e.deptno = d.deptno;
+
+q.8)display the information from the emp table for all the employees for which the deptno is same as
+that of smith.
+
+select *
+from emp
+where deptno = (select deptno
+                from emp
+               where ename = 'SMITH');
+
+q.9) display the information from the emp table for all the employees whose sal is greater than the
+average sal of the same deptno.
+
+select *
+from emp e
+where sal > (select AVG(sal)
+             from emp
+             where deptno = e.deptno);
+
+q.10)display the dept number and the avg salary department wise.
+
+select deptno,avg(sal) AS average_salary
+from emp
+group by deptno;

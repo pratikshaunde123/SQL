@@ -1,0 +1,583 @@
+8/10/2026
+
+1) select ename,sal,
+          sal*0.20 as HRA,
+	  sal*0.15 as DA,
+	  sal+HRA+DA as "Net earning"
+	 from emp;
+--------------------------------------------------
+2)select distinct job from emp;
+-----------------------------------------------------
+3)select ename,empno,deptno from emp;
+---------------------------------------------------
+4)drop databse cdac;
+
+open database:
+use cdac;
+
+current database:
+select user();
+
+root user:
+  root@localhost
+
+current date:
+   select curdate();
+	select current_date();
+
+current time:
+	select curtime();
+
+current date :
+	select now();
+
+all table:
+	show tables;
+
+create table dept:
+	create table dept(
+	deptno int,
+	dname varchar(20),
+	loc varchar(20));
+
+insert values:
+insert into dept
+	values(10,'acct','mum');
+
+insert into dept
+	values(20,'cash','delhi');
+	
+insert into dept
+	values(30,'billing','pune');
+
+insert into dept
+	values(40,'act','nashik');
+
+spelling mistake then used:
+	 ^c;
+
+see structure of table:
+	show tables;
+
+how to show null value:
+	insert into dept values(60,'operations',null);
+
+create emp table:
+   CREATE TABLE emp (
+    empno INT,
+    ename VARCHAR(20),
+    sal NUMERIC(10,2),
+    deptno INT,
+    doj DATE
+);
+
+insert value:
+        insert into emp values(10,'acct',45000,23,'2002-11-2');
+	insert into emp values(20,'pratisha',85000,27,'2002-12-8');
+	insert into emp values(30,'rahul',67000,24,'2003-09-4');
+	insert into emp values(40,'neha',45400,25,'2052-1-5');
+	insert into emp values(50,'priti',445000,26,'2072-1-4');
+
+delect row:
+	delete from emp
+	where empno=10;
+
+particular name delete:
+	delete from emp
+	where ename='mayur';
+
+delete all rows:
+	delete from emp;
+
+how to insert multiple rows:
+	insert into emp values(1,'satya',55000,10,'2026-2-2'),
+					    (2,'priti',56000,20,'2026-1-10'),
+                                             (3,'yash',58000,30,'2026-3-20');
+
+change salary 560000 for empno1:
+	update emp
+	set sal=56000
+	where empno=1;
+
+insert into emp(ename,empno,sal)values('ria',4,70000);
+insert into emp(ename,empno,sal)values('swami',5,70000);
+
+multiple value of these:
+insert into emp(ename,empno,sal)values('swami',5,70000),('pr',7,9999);
+
+third insert data:
+	update emp where 
+
+drop table dept;
+show tables;
+
+google: emp dept script in MySQL
+
+distinct : unique value:not repeated:
+	select distinct deptno from emp;
+
+rename ur column name:chaning the hading called alias
+	select  ename,sal as salary from emp;
+
+display ename and hire date change nm:
+   select ename ,hiredate as doj from emp;
+
+select ename,mgr as manager,job as desg from emp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
